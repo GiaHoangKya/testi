@@ -1,0 +1,12 @@
+.add{
+    display: flex;
+    padding: 50px;
+    border: 1px solid red ;
+    width: 800px;
+    height: 200px;
+    margin: 40px;
+}
+
+body{
+    background-color: aqua;
+}

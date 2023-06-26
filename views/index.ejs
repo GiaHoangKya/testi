@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Store app</title>
+        <link rel="stylesheet" href="/index.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    </head>
+
+    <body>
+     <div class="header">
+        <div class="head">
+            <h1>ATN</h1>
+        </div>
+       
+     </div>
+        <section>
+        <h1>Add new product</h1>
+        
+        <!-- (1): CREATE Task -->         
+        <!-- --> 
+        <div class="input">
+        <form action="/quotes" method="POST">  
+            
+            <input type="number" placeholder="ID" required name="STT" />     
+            <input type="text" placeholder="name" required name="name" />        
+            <input type="text" placeholder="price" required name="price" />
+            <input type="file" placeholder="image" required name="image">
+            <button type="submit">Submit</button>
+        </form>
+        </div>
+        <!-- -->                               
+
+        <!-- (2) READ Task -->                        
+        <h2> Table product </h2>
+            <!-- Loop through quotes -->
+                    <table class="tb">
+                        <thead >
+                            <th >Id</th>
+                            <th >Name</th>
+                            <th >Price</th>
+                            <th >Image</th>
+                            <th >Actions</th>
+                        </thead>
+                        <tbody>
+                                <% for(let i = 0; i < quotes.length; i++) {%>
+                                    <tr>
+                                        <td><span><%= quotes[i].STT %></span></td>
+                                        <td><span><%= quotes[i].name %></span></td>
+                                        <td><span><%= quotes[i].price %></span></td>
+                                        <td><img src="<%= quotes[i].image %>" alt="Quote Image" width="50px" height="50px"></td>
+                                        <td><a href="/" id="update-button"><i class="fa fa-edit" title="EDIT"></i></a>
+                                            <button type="submit" value="<%= quotes[i].name %>" id="delete-button"><i class="fa fa-trash" title="DELETE"></i></button></td>
+                                    </tr>
+                                <% } %> 
+                        </tbody>
+                    </table>   
+
+        <!-- (3) UPDATE Task -->
+        <!-- <div>
+            <h2>UPDATE: Darth Vadar invades!</h2>
+            <p>
+            Replace first Yoda's quote with a quote written by Darth Vadar
+            </p>
+            <button id="update-button">Replace Yoda's quote</button>
+        </div> -->
+
+        <!-- <div>
+            <h2>DELETE: Remove Darth Vadar!</h2>
+            <p>
+            Delete one Darth Vadar's quote. Does nothing if there are no more Darth Vadar's quote
+            </p>
+           <input type="text" >
+           <button  id="delete-button">Delete</button>
+        </div> -->
+    </section>
+
+        <!-- ... -->
+        <script src="/main.js"></script>
+    
+    </body>
+
+</html>
